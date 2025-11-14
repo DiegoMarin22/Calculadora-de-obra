@@ -1,0 +1,100 @@
+:root{
+    --bg:#F6F6F7;
+    --card:#ffffff;
+    --accent:#1B7F7A;
+    --muted:#6b6b6b;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:#111;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  .header{
+    padding:20px;
+    text-align:center;
+  }
+  .header h1{margin:0;font-size:20px}
+  .subtitle{margin:6px 0 0;color:var(--muted);font-size:13px}
+  
+  .container{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    padding:16px;
+    max-width:720px;
+    margin:0 auto;
+  }
+  
+  .card{
+    display:block;
+    background:var(--card);
+    border-radius:14px;
+    padding:16px;
+    text-decoration:none;
+    color:inherit;
+    box-shadow: 0 6px 18px rgba(15,15,15,0.05);
+    transition:transform .12s ease;
+  }
+  .card:active{transform:translateY(1px)}
+  .card-icon{font-size:28px}
+  .card h2{margin:8px 0 4px;font-size:16px}
+  .card p{margin:0;color:var(--muted);font-size:13px}
+  
+  /* Form layout used in steel.html & durlock.html */
+  .page{
+    padding:16px;
+  }
+  .form-row{
+    background:var(--card);
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:12px;
+    box-shadow: 0 6px 14px rgba(12,12,12,.03);
+  }
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  input[type="number"], select{
+    width:100%;
+    padding:10px;
+    font-size:15px;
+    border-radius:8px;
+    border:1px solid #e8e8e8;
+    box-sizing:border-box;
+  }
+  
+  /* Primary button */
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    border:none;
+    padding:12px 16px;
+    border-radius:12px;
+    font-weight:600;
+    text-align:center;
+    cursor:pointer;
+    width:100%;
+    margin-top:8px;
+  }
+  
+  /* Results card */
+  .results{
+    background:linear-gradient(180deg,#fff,#fbfbfb);
+    padding:12px;
+    border-radius:12px;
+    margin-top:12px;
+  }
+  .results .row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #efefef}
+  .results .row:last-child{border-bottom:none}
+  .small{font-size:13px;color:var(--muted)}
+  
+  /* Responsive: two columns on wider screens */
+  @media(min-width:720px){
+    .container{flex-direction:row;gap:18px;padding:24px}
+    .card{flex:1}
+  }
+  

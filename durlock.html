@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Durlock - Calculadora</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Durlock (Placas)</h1>
+    <p class="subtitle">Calcular placas y tornillería</p>
+  </header>
+
+  <main class="page">
+    <div class="form-row">
+      <label>Ancho total a cubrir (m²)</label>
+      <input id="dl-area" type="number" min="0" step="0.01" value="8.1">
+      <p class="small">Ej: pared de 3m x 2.7m = 8.1 m²</p>
+    </div>
+
+    <div class="form-row">
+      <label>Tamaño de placa</label>
+      <select id="dl-plate">
+        <option value="2.4x1.2">2.4 x 1.2 m (2.88 m²)</option>
+        <option value="2.4x0.9">2.4 x 0.9 m (2.16 m²)</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Espesor placa (mm)</label>
+      <select id="dl-thickness">
+        <option value="12.5">12.5</option>
+        <option value="9.5">9.5</option>
+      </select>
+    </div>
+
+    <button id="dl-calc" class="btn">Calcular</button>
+
+    <div id="dl-results" class="results" style="display:none;margin-top:14px"></div>
+    <button id="dl-export" class="btn" style="display:none;margin-top:8px">Exportar PDF / Imprimir</button>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
