@@ -1,4 +1,3 @@
-// service-worker.js
 const CACHE_NAME = 'calc-obra-cache-v2';
 const urlsToCache = [
   '/',
@@ -10,24 +9,29 @@ const urlsToCache = [
   '/icons/Icon-512.png'
 ];
 
-self.addEventListener('install', (event) => {
+// Instalar: cacheamos todo
+self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
 });
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
+// Activar: borramos caches viejos
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.map(key => {
+          if (key !== CACHE_NAME) return caches.delete(key);
+        })
+      );
+    })
   );
 });
 
-
-// FETCH: usa primero caché, luego red
-self.addEventListener("fetch", event => {
+// Fetch: usamos cache primero
+self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request).then(response => response || fetch(event.request))
   );
 });
