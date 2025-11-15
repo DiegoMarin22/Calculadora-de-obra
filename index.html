@@ -1,44 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="manifest" href="manifest.json" />
-
-  <!-- Icono para PWA -->
-  <link rel="icon" href="icons/icon-192.png" />
-
-  <!-- Color de la barra superior en Android -->
-  <meta name="theme-color" content="#4a90e2" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Obra</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Manifest y colores -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6200ee">
+  <meta name="description" content="Calcula materiales para Steel Frame y Durlock">
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
-    <h1>Calculadora de Obra</h1>
-    <p class="subtitle">Steel Frame · Placas (Roca-Yeso)</p>
-  </header>
+  <h1>Calculadora de Obra</h1>
+  <p>Bienvenido a tu PWA para calcular materiales de Steel Frame y Durlock.</p>
 
-  <main class="container">
-    <a class="card" href="steel.html">
-      <div class="card-icon">🧱</div>
-      <h2>Steel Frame</h2>
-      <p>Calcular perfiles, montantes y tornillería</p>
-    </a>
+  <script src="app.js"></script>
 
-    <a class="card" href="durlock.html">
-      <div class="card-icon">📐</div>
-      <h2>Durlock</h2>
-      <p>Calcular placas, tornillos y materiales</p>
-    </a>
-  </main>
-
+  <!-- Service Worker -->
   <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js")
-        .then(() => console.log("Service worker registrado"))
-        .catch(err => console.log("Error registrando SW", err));
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker registrado correctamente'))
+        .catch(err => console.log('Error registrando Service Worker:', err));
     }
   </script>
 </body>
