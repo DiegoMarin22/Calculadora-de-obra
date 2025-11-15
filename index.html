@@ -1,59 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Obra</title>
-
-  <!-- Manifest -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#6200ee">
-  <meta name="description" content="Calcula materiales para Steel Frame y Durlock">
-
-  <!-- iOS PWA -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Estilos -->
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Obra</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6200ee">
+<link rel="apple-touch-icon" href="icons/Icon-192.png">
 </head>
 <body>
-  <header>
-    <h1>Calculadora de Obra</h1>
-    <h3>Steel Frame & Durlock</h3>
-  </header>
+<header>
+  <h1>Calculadora de Obra</h1>
+  <h3>Steel Frame & Durlock</h3>
+</header>
 
-  <main>
-    <div class="card">
-      <label for="m2">Metros cuadrados:</label>
-      <input type="number" id="m2" placeholder="Ingrese m²">
-    </div>
+<main>
+  <div class="card">
+    <label for="m2">Metros cuadrados:</label>
+    <input type="number" id="m2" placeholder="Ingrese m²">
+  </div>
 
-    <div class="card">
-      <label for="tipo">Tipo de material:</label>
-      <select id="tipo">
-        <option value="steel">Steel Frame</option>
-        <option value="durlock">Durlock</option>
-      </select>
-    </div>
+  <div class="card">
+    <label for="tipo">Tipo de material:</label>
+    <select id="tipo">
+      <option value="steel">Steel Frame</option>
+      <option value="durlock">Durlock</option>
+    </select>
+  </div>
 
-    <button id="calcular">Calcular</button>
+  <button id="calcular">Calcular</button>
 
-    <div class="card">
-      <h4>Resultados:</h4>
-      <p id="resultado">Aquí aparecerán los materiales necesarios.</p>
-    </div>
-  </main>
+  <div class="card">
+    <h4>Resultados:</h4>
+    <p id="resultado">Aquí aparecerán los materiales necesarios.</p>
+  </div>
+</main>
 
-  <script src="app.js"></script>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('Service Worker registrado'))
-        .catch(err => console.log('Error SW:', err));
-    }
-  </script>
+<script src="app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js')
+    .then(() => console.log('Service Worker registrado'))
+    .catch(err => console.log('Error SW:', err));
+}
+</script>
 </body>
 </html>
+
