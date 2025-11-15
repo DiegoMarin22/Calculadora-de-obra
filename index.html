@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Obra</title>
 
-  <!-- Manifest y colores -->
+  <!-- Manifest -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#6200ee">
   <meta name="description" content="Calcula materiales para Steel Frame y Durlock">
@@ -19,18 +19,40 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Calculadora de Obra</h1>
-  <h3>Bienvenido a tu PWA</h3>
-  <p>Calcula materiales de Steel Frame y Durlock de manera rápida y fácil.</p>
+  <header>
+    <h1>Calculadora de Obra</h1>
+    <h3>Steel Frame & Durlock</h3>
+  </header>
+
+  <main>
+    <div class="card">
+      <label for="m2">Metros cuadrados:</label>
+      <input type="number" id="m2" placeholder="Ingrese m²">
+    </div>
+
+    <div class="card">
+      <label for="tipo">Tipo de material:</label>
+      <select id="tipo">
+        <option value="steel">Steel Frame</option>
+        <option value="durlock">Durlock</option>
+      </select>
+    </div>
+
+    <button id="calcular">Calcular</button>
+
+    <div class="card">
+      <h4>Resultados:</h4>
+      <p id="resultado">Aquí aparecerán los materiales necesarios.</p>
+    </div>
+  </main>
 
   <script src="app.js"></script>
 
-  <!-- Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('Service Worker registrado correctamente'))
-        .catch(err => console.log('Error registrando Service Worker:', err));
+        .then(() => console.log('Service Worker registrado'))
+        .catch(err => console.log('Error SW:', err));
     }
   </script>
 </body>
