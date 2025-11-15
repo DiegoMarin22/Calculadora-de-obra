@@ -1,4 +1,4 @@
-const CACHE_NAME = 'calc-obra-cache-v2';
+const CACHE_NAME = 'calc-obra-cache-v' + new Date().getTime(); // versión única por cada deploy
 const urlsToCache = [
   '/',
   '/index.html',
@@ -16,22 +16,27 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activar: borramos caches viejos
+// Activar: borramos caches antiguos
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => {
       return Promise.all(
         keys.map(key => {
-          if (key !== CACHE_NAME) return caches.delete(key);
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
         })
       );
     })
   );
 });
 
-// Fetch: usamos cache primero
+// Fetch: usamos cache primero, si no existe, pedimos al servidor
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
   );
 });
+
