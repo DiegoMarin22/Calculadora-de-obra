@@ -1,9 +1,5 @@
 /* Reset básico */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin:0; padding:0; }
 
 body {
   font-family: 'Arial', sans-serif;
@@ -15,21 +11,9 @@ body {
   padding: 20px;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-header h1 {
-  font-size: 2em;
-  color: #6200ee;
-}
-
-header h3 {
-  font-weight: normal;
-  color: #555;
-  margin-top: 5px;
-}
+header { text-align: center; margin-bottom: 20px; }
+header h1 { font-size: 2.2em; color: #6200ee; }
+header h3 { font-weight: normal; color: #555; margin-top: 5px; }
 
 main {
   width: 100%;
@@ -43,17 +27,15 @@ main {
   background: #fff;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
 }
 
-.card:hover {
-  transform: translateY(-3px);
-}
+.card:hover { transform: translateY(-3px); }
 
 input, select {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-top: 8px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -61,7 +43,7 @@ input, select {
 }
 
 button {
-  padding: 12px;
+  padding: 14px;
   background-color: #6200ee;
   color: #fff;
   border: none;
@@ -72,15 +54,15 @@ button {
   transition: background 0.3s ease;
 }
 
-button:hover {
-  background-color: #4500bb;
+button:hover { background-color: #4500bb; }
+
+#resultado { font-weight: bold; color: #333; margin-top: 10px; }
+
+@media(max-width: 600px){
+  main { padding: 0 10px; }
+  button { font-size: 14px; padding: 12px; }
 }
 
-#resultado {
-  font-weight: bold;
-  color: #333;
-  margin-top: 10px;
-}
 
 
   
